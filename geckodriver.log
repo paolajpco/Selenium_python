@@ -1,0 +1,23 @@
+1646354962301	geckodriver	INFO	Listening on 127.0.0.1:53356
+1646354965367	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53357" "-no-remote" "-profile" "C:\\Users\\July\\AppData\\Local\\Temp\\rust_mozprofileZZNdHK"
+1646354965828	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\July\\AppData\\Local\\Temp\\rust_mozprofileZZNdHK\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53357/devtools/browser/dbf6dd61-0b29-4e72-bcf7-ad28af53b401
+1646354968959	Marionette	INFO	Listening on port 53365
+1646354969078	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1646354979872	Marionette	INFO	Stopped listening on port 53365
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: C:\Users\July\AppData\Local\Temp\rust_mozprofileZZNdHK\protections.sqlite
+1646355285069	geckodriver	INFO	Listening on 127.0.0.1:53969
+1646355288108	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "53970" "-no-remote" "-profile" "C:\\Users\\July\\AppData\\Local\\Temp\\rust_mozprofilezvAWAR"
+1646355288630	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\July\\AppData\\Local\\Temp\\rust_mozprofilezvAWAR\\search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:53970/devtools/browser/1c5d0ae8-bd6a-45c5-965f-d493615b8bd7
+1646355291772	Marionette	INFO	Listening on port 53979
+1646355291843	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1646355326799	geckodriver	INFO	Listening on 127.0.0.1:54076
+1646355329857	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "54077" "-no-remote" "-profile" "C:\\Users\\July\\AppData\\Local\\Temp\\rust_mozprofileI3b1hh"
+1646355330273	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\July\\AppData\\Local\\Temp\\rust_mozprofileI3b1hh\\search.json.mozlz4", (void 0)))
