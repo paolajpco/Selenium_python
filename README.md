@@ -5,7 +5,7 @@ _El proyecto tiene los casos de uso necesarios para poder realizar el registro y
 
 ## ¿Cómo se resolvió? 🚀
 
-_Se realiza uso del framework selenium con python, del cual se crea las paginas representadas en clases las cuales fueron basadas bajo el potron de diseño POM._
+_Se realiza uso del framework selenium con python, del cual se crea las paginas representadas en clases las cuales fueron basadas bajo el patron de diseño POM._
 
 
 ### ¿Cómo hacelo funcionar? 📋
