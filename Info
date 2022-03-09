@@ -1,0 +1,28 @@
+Comandos
+python -m pip install selenium
+python -m pip list ---listar recursos
+python -m pip install pytest-soft-assertions
+
+py.test --soft-asserts
+py.test examples/test_all_asserts.py --soft-asserts
+python -m py.test .\Registro.py --soft-asserts
+python -m pip install pytest-html-reporter
+python -m pip install allure-pytest
+
+#Listener
+$ pytest -- alluredir = / tmp / my_allure_results
+#Generar
+$ allure serve /tmp/my_allure_results
+
+python -m pip install behave
+
+python -m pip install -U behave
+
+Web Drivers
+Chrome
+Firefox
+
+Pchart
+C:\Program Files\JetBrains\PyCharm Community Edition 2021.3.2
+Ejecuta pytest
+C:\Users\July\Desktop\Python_Selenium\POM> python -m py.test main.py --soft-asserts
