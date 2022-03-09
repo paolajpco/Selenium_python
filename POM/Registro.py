@@ -16,8 +16,6 @@ class TestCasesRegister():
     def __init__(self, driver):
         self.driver = driver
 
-# Test Case 1: Register User all fields
-
     def test_Register1(self, name, Apell, Apell2, TipoDoc, NroDoc, Mail, Tel, passw1, passw2, t, city,dir1,dir2Str,dir3Str,dir4Str,CompDirStr,msgC ):
         driver = self.driver
         nr = Funciones_Globales(driver)
@@ -42,7 +40,6 @@ class TestCasesRegister():
             By.XPATH, "//input[@placeholder='Escribe tu contraseña']")
         Clave2 = driver.find_element(
             By.XPATH, "//input[@placeholder='Confirma tu contraseña']")
-        print(":::::::::::::::::::::INGRESE:::::::::::::::::::::")
         time.sleep(t)
         nombre.send_keys(name)
         time.sleep(t)
@@ -87,13 +84,12 @@ class TestCasesRegister():
         alert = Alert(driver)       
         alert.accept()
         time.sleep(t)
-        ################################
         #FORM DIRECCION
         #Input de ciudad Tipo Combobox
         cityInput = driver.find_element(
             By.XPATH, "(//input[@required='required'])[1]")        
         cityInput.send_keys(city+Keys.ENTER)
-        time.sleep(4)
+        time.sleep(8)
         cityTrash = driver.find_element(
             By.XPATH, "//li[contains(@id,'autocomplete-item-0')]") 
         cityTrash.click()
@@ -133,7 +129,7 @@ class TestCasesRegister():
         BtonMap= WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
             (By.XPATH, "//button[contains(.,'Seleccionar en el mapa')]")))
         BtonMap.click()
-        time.sleep(t)
+        time.sleep(4)
         # Input Direccion Complemento
         ComplementoDir= driver.find_element(
             By.XPATH, "//input[@tabindex='4']")
@@ -152,10 +148,9 @@ class TestCasesRegister():
         # Texto Cobertura Envios
         MsgCobertura= driver.find_element(
             By.XPATH, "//p[contains(.,'No tenemos cobertura en tu zona')]")
-        #//p[contains(.,'No tenemos cobertura en tu zona')]
         #Assert Cobertura
         assert msgC == MsgCobertura, "Test Case 1 Register OK!"
-        
+        time.sleep(15)  
 def tearDown(self):
         driver = self.driver
         driver.close()

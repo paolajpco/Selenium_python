@@ -32,10 +32,6 @@ class Funciones_Globales():
         self.driver.maximize_window()
         t = time.sleep(Tiempo)
 
-    # def tearDown(self):
-    #     driver = self.driver
-    #     driver.close()
-
 
 if __name__ == '__main__':
     unittest.main()
