@@ -1,10 +1,23 @@
-1. registrar en pagina e-comerce Happy path
-    1.1 resgistrarse en pagina e-comerce Tipo Documento Cedula
-    1.2 resgistrarse en pagina e-comerce Tipo Documento Nit
-    1.3 resgistrarse en pagina e-comerce Tipo Documento Extranjero
+1. Login Test Cases
+    Test Case1: loguear en pagina e-comerce solo campo User
+    Test Case2: loguear en pagina e-commerce solo campo pass
+    Test Case3: loguear en pagina e-commerce campos vacios
+    Test Case4: loguear en pagina e-commerce ambos campos User valido (Happy path)
 
-2. registrar en pagina e-comerce alternative paths
-    2.1 resgistrarse en pagina e-comerce campos obligatorios pendientes
+2. Register Test Cases 
+    Test Case1: Register User all fields Tipo Documento  CC
+    Test Case2: Register User required fields Tipo Documento  Nit
+    Test Case3: Register User required fields Tipo Documento Extranjero
 
-3. loguear en pagina e-comerce available user register
-    2.1 loguear en pagina e-comerce user unregister
+3. Register Alterative Test Cases
+    Test Case1: Register User required fields validar formato campo e-mail 
+    msg ( Debes ingresar un email válido)
+
+    Test Case2: Register User required fields validar formato campo Tel 
+    Msg- El número telefónico debe ser númérico y tener 10 dígitos.
+    
+    Test Case3:  Register User required fields validar formato campo pass
+    Msg - Debe tener al menos una letra mayúscula, una letra minúscula, un número y ser de 6 a 15 caracteres de longuitud.
+    
+    Test Case4: Register User required fields validar formato campo confirmar pass -- Las contraseñas no coinciden.
+    

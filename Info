@@ -1,6 +1,10 @@
 Comandos
 python -m pip install selenium
+python -m pip install pytest-html-reporter
 
+python -m pip install behave
+
+python -m pip install -U behave
 
 Web Drivers
 Chrome
