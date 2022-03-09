@@ -51,25 +51,24 @@ driver.find_element_by_xpath(
 time.sleep(6)
 
 # Campo Checkbox Acepto politica tratamiento de datos
-
 btn1 = WebDriverWait(driver, 15).until(EC.element_to_be_clickable(
     (By.XPATH, "//input[@type='checkbox']")))
 btn1.click()
 time.sleep(6)
 
-# # Boton Crear Cuenta
-# try:
-#     Btn2 = WebDriverWait(driver, 15).until(EC.element_to_be_clickable(
-#         (By.XPATH, "//button[@aria-label='Crear Cuenta']"))).click()
+# Boton Crear Cuenta
+try:
+    Btn2 = WebDriverWait(driver, 15).until(EC.element_to_be_clickable(
+        (By.XPATH, "//button[@aria-label='Crear Cuenta']"))).click()
 
-# except TimeoutException as ex:
-#     print(ex.msg)
-#     print("El elemento no esta disponible")
-# time.sleep(t)
-# wait = WebDriverWait(driver, 10)
-# wait.until(EC.alert_is_present())
-# alert = driver.switch_to.alert
-# alert.accept()
+except TimeoutException as ex:
+    print(ex.msg)
+    print("El elemento no esta disponible")
+time.sleep(t)
+wait = WebDriverWait(driver, 10)
+wait.until(EC.alert_is_present())
+alert = driver.switch_to.alert
+alert.accept()
 
 # driver.switch_to_alert().accept()  # ejecutar el boton Aceptar
 

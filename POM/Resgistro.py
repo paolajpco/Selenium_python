@@ -18,12 +18,10 @@ class TestCasesRegister():
 
 # Test Case 1: Register User all fields
 
-    def test_Register1(self, name, Apell, Apell2, TipoDoc, NroDoc, Mail, Tel, passw1, passw2, t, city,dir1,dir2,dir3,dir4 ):
+    def test_Register1(self, name, Apell, Apell2, TipoDoc, NroDoc, Mail, Tel, passw1, passw2, t, city,dir1,dir2Str,dir3Str,dir4Str,CompDirStr,msgC ):
         driver = self.driver
         nr = Funciones_Globales(driver)
         nr.NavegarRegistro(t)
-        #print(name+" :::"+Apell,Apell2,Mail,Tel,passw1,passw2,t,)
-        #find_element(by=By.XPATH, value=xpath)
         nombre = driver.find_element(
             By.XPATH, "//input[contains(@placeholder,'Escribe tu nombre')]")
         #nombre = driver.find_element_by_xpath("//input[contains(@placeholder,'Escribe tu nombre')]")
@@ -33,16 +31,7 @@ class TestCasesRegister():
             By.XPATH, "//input[contains(@placeholder,'Escribe tu segundo apellido')]")
         # TipoDoc
         # Campo Select tipo documento
-        try:
-            selectTypeId = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
-                (By.XPATH, "(//select[@aria-label='select-field'])[2]")))
-            typeId = Select(selectTypeId)
-            typeId.select_by_value(TipoDoc)
-            time.sleep(t)
-        except TimeoutException as ex:
-            print(ex.msg)
-            print("El elemento no esta disponible")
-            time.sleep(t)
+        
         NroDocumento = driver.find_element(
             By.XPATH, "//input[@placeholder='1234567890']")
         EMail = driver.find_element(
@@ -63,6 +52,16 @@ class TestCasesRegister():
         time.sleep(t)
         #TipoDoc.send_keys(TipoDoc +Keys.ENTER)
         # time.sleep(t)
+        try:
+            selectTypeId = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
+                (By.XPATH, "(//select[@aria-label='select-field'])[2]")))
+            typeId = Select(selectTypeId)
+            typeId.select_by_value(TipoDoc)
+            time.sleep(t)
+        except TimeoutException as ex:
+            print(ex.msg)
+            print("El elemento no esta disponible")
+            time.sleep(t)
         NroDocumento.send_keys(NroDoc + Keys.ENTER)
         time.sleep(t)
         EMail.send_keys(Mail + Keys.ENTER)
@@ -90,21 +89,19 @@ class TestCasesRegister():
         time.sleep(t)
         ################################
         #FORM DIRECCION
-        #Select de ciudad Tipo Combobox
-        try:
-            time.sleep(t)
-            selectTypeId = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
-                (By.XPATH, "(//input[@required='required'])[1]")))
-            typeId2 = Select(selectTypeId)
-            typeId2.select_by_value(city)
-            time.sleep(t)
-        except TimeoutException as ex:
-            print(ex.msg)
-        
+        #Input de ciudad Tipo Combobox
+        cityInput = driver.find_element(
+            By.XPATH, "(//input[@required='required'])[1]")        
+        cityInput.send_keys(city+Keys.ENTER)
+        time.sleep(4)
+        cityTrash = driver.find_element(
+            By.XPATH, "//li[contains(@id,'autocomplete-item-0')]") 
+        cityTrash.click()
+        time.sleep(t)
         #Select de dir1 Tipo Combobox
         try:
             selectTypeId = WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
-                (By.XPATH, "//select[@aria-label='select-field'])[1]")))
+            (By.XPATH, "(//select[@class='select__controler'])[1]")))
             typeId = Select(selectTypeId)
             typeId.select_by_value(dir1)
             time.sleep(t)
@@ -121,25 +118,47 @@ class TestCasesRegister():
         dir4 = driver.find_element(
             By.XPATH, "(//input[@required='required'])[4]")
         # SendKeys Form Direccion    
-        dir2.send_keys(dir2+Keys.ENTER)
+        dir2.send_keys(dir2Str+Keys.ENTER)
         time.sleep(t)
-        dir3.send_keys(dir3+Keys.ENTER)
+        dir3.send_keys(dir3Str+Keys.ENTER)
         time.sleep(t)
-        dir4.send_keys(dir4+Keys.ENTER)
+        dir4.send_keys(dir4Str+Keys.ENTER)
         time.sleep(t)
         #Boton Buscar Direccion
         BtonDir= WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-            (By.XPATH, "(//button[@aria-label='BUSCAR']")))
+            (By.XPATH, "//button[contains(.,'BUSCAR Espera...')]")))
         BtonDir.click()
-
-
-# Test Case 2 Register User required fields
-
-#     def test_Register2(self):
-#         nr = Funciones_Globales(driver)
-#         nr.NavegarRegistro
-#         driver = self.driver
-
+        time.sleep(4)
+        # Boton Form seleccionar en el Mapa
+        BtonMap= WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
+            (By.XPATH, "//button[contains(.,'Seleccionar en el mapa')]")))
+        BtonMap.click()
+        time.sleep(t)
+        # Input Direccion Complemento
+        ComplementoDir= driver.find_element(
+            By.XPATH, "//input[@tabindex='4']")
+        ComplementoDir.send_keys(CompDirStr+Keys.ENTER)
+        time.sleep(4)
+        # Boton Confirmar
+        BtonConfMap= WebDriverWait(driver, 15).until(EC.element_to_be_clickable(
+            (By.XPATH, "//button[@aria-label='Confirmar']")))
+        BtonConfMap.click()
+        time.sleep(6)     
+        # Boton Confirmar
+        BtonSecConfMap= WebDriverWait(driver, 15).until(EC.element_to_be_clickable(
+            (By.XPATH, "(//button[contains(.,'Confirmar')])[2]")))
+        BtonSecConfMap.click()
+        time.sleep(6)     
+        # Texto Cobertura Envios
+        MsgCobertura= driver.find_element(
+            By.XPATH, "//p[contains(.,'No tenemos cobertura en tu zona')]")
+        #//p[contains(.,'No tenemos cobertura en tu zona')]
+        #Assert Cobertura
+        assert msgC == MsgCobertura, "Test Case 1 Register OK!"
+        
+def tearDown(self):
+        driver = self.driver
+        driver.close()
 
 if __name__ == '__main__':
     unittest.main()
