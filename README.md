@@ -19,3 +19,8 @@ _Para instalar selenium con python debera ejecutar el siguiente compando desde l
 ```
 python -m pip install selenium
 ```
+_Una Vez Configurado los requerimientos basicos de ambiente local, debe configurar y clonar el repositorio, Guia en el siguinete Link: https://www.mclibre.org/consultar/informatica/lecciones/vsc-git-repositorio.html
+_Correr el proyecto desde linea de comando con el comando
+```
+python RutaProyectoLocal\POM\main.py
+```
