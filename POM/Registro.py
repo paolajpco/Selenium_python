@@ -13,8 +13,8 @@ from Funciones.Funciones import Funciones_Globales
 
 class TestCasesRegister():
 
-    def __init__(self, driver):
-        self.driver = driver
+    # def __init__(self, driver):
+    #     self.driver = driver
 
     def test_Register1(self, name, Apell, Apell2, TipoDoc, NroDoc, Mail, Tel, passw1, passw2, t, city,dir1,dir2Str,dir3Str,dir4Str,CompDirStr,msgC ):
         driver = self.driver

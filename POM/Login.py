@@ -20,16 +20,16 @@ class TestCasesLogin():
         nl = Funciones_Globales(driver)
         nl.NavegarLogin(t)            
         time.sleep(4)   
-        nom = driver.find_element_by_xpath("//input[contains(@data-role,'email_textbox')]")
-        clave = driver.find_element_by_xpath("//input[contains(@type,'password')]")
-        bt = driver.find_element_by_xpath("//button[@aria-label='Ingresar']")
+        nom =driver.find_element(by=By.XPATH, value="//input[contains(@data-role,'email_textbox')]")
+        clave = driver.find_element(by=By.XPATH, value="//input[contains(@type,'password')]")
+        bt = driver.find_element(by=By.XPATH, value="//button[@aria-label='Ingresar']")
         nom.send_keys(name)
         clave.send_keys(passw)
         bt.click()
         time.sleep(t)
-        error = driver.find_element_by_xpath("(//div[@class='alert__text'])[2]").text
-        print(msg)
-        print(error)
+        error = driver.find_element(by=By.XPATH, value="(//div[@class='alert__text'])[2]").text
+        # print(msg)
+        # print(error)
         assert msg == error, "Test Case 1 Login OK!"
         time.sleep(t)
 
@@ -37,15 +37,15 @@ class TestCasesLogin():
         driver = self.driver
         nl = Funciones_Globales(driver)
         nl.NavegarLogin(t)        
-        nom = driver.find_element_by_xpath("//input[contains(@data-role,'email_textbox')]")
-        clave = driver.find_element_by_xpath("//input[contains(@type,'password')]")
+        nom = driver.find_element(by=By.XPATH, value="//input[contains(@data-role,'email_textbox')]")
+        clave = driver.find_element(by=By.XPATH, value="//input[contains(@type,'password')]")
         nom.send_keys(name)
         clave.send_keys(passw + Keys.ENTER)
         time.sleep(t)
-        error1 = driver.find_element_by_xpath("//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Debes ingresar un email válido')]").text
-        error2 = driver.find_element_by_xpath("//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Campo Requerido')]").text
-        print(msg1)
-        print(error1)
+        error1 = driver.find_element(by=By.XPATH, value="//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Debes ingresar un email válido')]").text
+        error2 = driver.find_element(by=By.XPATH, value="//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Campo Requerido')]").text
+        #print(msg1)
+        #print(error1)
         assert msg1 == error1
         time.sleep(t)
         print(msg2)
@@ -57,13 +57,13 @@ class TestCasesLogin():
         driver = self.driver
         nl = Funciones_Globales(driver)
         nl.NavegarLogin(t)        
-        nom = driver.find_element_by_xpath("//input[contains(@data-role,'email_textbox')]")
-        clave = driver.find_element_by_xpath("//input[contains(@type,'password')]")
+        nom = driver.find_element(by=By.XPATH, value="//input[contains(@data-role,'email_textbox')]")
+        clave = driver.find_element(by=By.XPATH, value="//input[contains(@type,'password')]")
         nom.send_keys(name + Keys.TAB)
         clave.send_keys(passw + Keys.TAB)
         time.sleep(t)
-        error1 = driver.find_element_by_xpath("//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Debes ingresar un email válido')]").text
-        error2 = driver.find_element_by_xpath("//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Campo Requerido')]").text
+        error1 = driver.find_element(by=By.XPATH, value="//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Debes ingresar un email válido')]").text
+        error2 = driver.find_element(by=By.XPATH, value="//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Campo Requerido')]").text
         print(msg1)
         print(error1)
         assert msg1 == error1, "Test Case 3 Login OK!"
@@ -77,17 +77,17 @@ class TestCasesLogin():
         driver = self.driver
         nl = Funciones_Globales(driver)
         nl.NavegarLogin(t)        
-        nom = driver.find_element_by_xpath("//input[contains(@data-role,'email_textbox')]")
-        clave = driver.find_element_by_xpath("//input[contains(@type,'password')]")
+        nom = driver.find_element(by=By.XPATH, value="//input[contains(@data-role,'email_textbox')]")
+        clave = driver.find_element(by=By.XPATH, value="//input[contains(@type,'password')]")
         nom.send_keys(name + Keys.TAB)
         time.sleep(t)
         clave.send_keys("" + Keys.TAB)
         time.sleep(5)
-        error1 = driver.find_element_by_xpath("//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Debes ingresar un email válido')]").text
-        error2 = driver.find_element_by_xpath("(//div[@class='input__error text-left text-medium-negative text-xs'])[3]").text
+        error1 = driver.find_element(by=By.XPATH, value="//div[@class='input__error text-left text-medium-negative text-xs'][contains(.,'- Debes ingresar un email válido')]").text
+        error2 = driver.find_element(by=By.XPATH, value="(//div[@class='input__error text-left text-medium-negative text-xs'])[3]").text
 
-        print(msg1)
-        print(error1)
+        # #print(msg1)
+        # print(error1)
         assert msg1 == error1, "Test Case 4 Login OK!"
 
         time.sleep(t)
@@ -99,20 +99,19 @@ class TestCasesLogin():
         driver = self.driver
         nl = Funciones_Globales(driver)
         nl.NavegarLogin(t)        
-        nom = driver.find_element_by_xpath("//input[contains(@data-role,'email_textbox')]")
-        clave = driver.find_element_by_xpath("//input[contains(@type,'password')]")
+        nom = driver.find_element(by=By.XPATH, value="//input[contains(@data-role,'email_textbox')]")
+        clave = driver.find_element(by=By.XPATH, value="//input[contains(@type,'password')]")
         nom.send_keys(name + Keys.TAB)
         time.sleep(t)
         clave.send_keys(passw + Keys.TAB)
         time.sleep(t)
-        text = driver.find_element_by_xpath(
+        text = driver.find_element(by=By.XPATH, value=
             "").text
         assert msg1 == text, "Test Case 5 Login OK!"
    
 def tearDown(self):
         driver = self.driver
         driver.close()
-
 
 if __name__ == '__main__':
     unittest.main()
